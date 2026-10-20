@@ -1,0 +1,154 @@
+@keyframes rainbow-fluid {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 15px #ff00ff, 0 0 30px #00ffff, 0 0 45px #00ff00;
+  }
+  50% {
+    box-shadow: 0 0 25px #ffff00, 0 0 50px #ff0000, 0 0 75px #9900ff;
+  }
+}
+
+@keyframes text-chromatic {
+  0% {
+    text-shadow: -2px -2px 0 #ff0055, 2px 2px 0 #00ffff, 0 0 10px #ff00ff;
+    transform: skewX(0deg) scale(1);
+  }
+  25% {
+    text-shadow: 3px -1px 0 #00ff00, -3px 2px 0 #ff00ff, 0 0 15px #00ffff;
+    transform: skewX(-2deg) scale(1.02);
+  }
+  50% {
+    text-shadow: -3px 2px 0 #ffff00, 3px -2px 0 #0000ff, 0 0 20px #ff0000;
+    transform: skewX(2deg) scale(0.98);
+  }
+  75% {
+    text-shadow: 2px 3px 0 #00ffff, -2px -3px 0 #ff0055, 0 0 15px #ffff00;
+    transform: skewX(-1deg) scale(1.01);
+  }
+  100% {
+    text-shadow: -2px -2px 0 #ff0055, 2px 2px 0 #00ffff, 0 0 10px #ff00ff;
+    transform: skewX(0deg) scale(1);
+  }
+}
+
+@keyframes melting-wave {
+  0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+  50% { border-radius: 30% 60% 70% 30% / 50% 60% 30% 60%; }
+}
+
+body {
+  background: linear-gradient(
+    -45deg,
+    #ff007f,
+    #7f00ff,
+    #00f0ff,
+    #00ff66,
+    #ffeedd,
+    #ff0000
+  );
+  background-size: 400% 400%;
+  animation: rainbow-fluid 12s ease infinite;
+  color: #ffffff;
+  font-family: 'Comic Sans MS', 'Chalkboard SE', 'Poplar', cursive, sans-serif;
+  min-height: 100vh;
+  margin: 0;
+  padding: 20px;
+  overflow-x: hidden;
+  filter: contrast(120%) saturate(200%);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  animation: text-chromatic 2.5s infinite linear;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #fff;
+  display: inline-block;
+}
+
+p, span, li, label {
+  text-shadow: 0 0 8px #000000, 0 0 12px #ff00ff;
+  transition: all 0.3s ease;
+}
+
+p:hover {
+  filter: invert(100%);
+  transform: rotate(1deg) scale(1.03);
+}
+
+a {
+  color: #ffff00;
+  text-shadow: 0 0 5px #ff0000;
+  text-decoration: underline wavy #00ffff;
+  transition: all 0.2s ease;
+}
+
+a:hover {
+  color: #00ff00;
+  text-shadow: 0 0 15px #ffff00, 0 0 25px #ff00ff;
+  letter-spacing: 4px;
+}
+
+button, input[type="submit"], .btn {
+  background: linear-gradient(90deg, #ff00ff, #00ffff, #ffff00);
+  background-size: 200% 200%;
+  animation: rainbow-fluid 3s ease infinite, pulse-glow 2s infinite alternate;
+  border: 3px solid #ffffff;
+  color: #000000;
+  font-weight: bold;
+  font-size: 1.1rem;
+  padding: 12px 24px;
+  cursor: pointer;
+  outline: none;
+  transition: transform 0.2s ease;
+}
+
+button:hover, input[type="submit"]:hover, .btn:hover {
+  transform: scale(1.15) rotate(-3deg);
+  filter: invert(100%);
+}
+
+div, section, article, card {
+  animation: melting-wave 8s ease infinite alternate;
+  backdrop-filter: blur(5px) hue-rotate(90deg);
+  background: rgba(0, 0, 0, 0.4);
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  box-shadow: inset 0 0 20px rgba(255, 0, 255, 0.5), 0 0 30px rgba(0, 255, 255, 0.5);
+  padding: 20px;
+  margin: 15px 0;
+  transition: filter 0.5s ease;
+}
+
+div:hover, section:hover, article:hover {
+  filter: hue-rotate(180deg) invert(20%);
+}
+
+img, video, svg {
+  border-radius: 50% 20% 50% 20%;
+  animation: pulse-glow 4s infinite, melting-wave 6s infinite alternate;
+  filter: saturate(300%) contrast(150%) hue-rotate(0deg);
+  transition: filter 0.8s ease, transform 0.5s ease;
+}
+
+img:hover, video:hover {
+  filter: saturate(500%) hue-rotate(360deg) invert(100%);
+  transform: scale(1.1) rotate(5deg);
+}
+
+::-webkit-scrollbar {
+  width: 16px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(#ff0000, #ffff00, #00ff00, #00ffff, #ff00ff);
+  border-radius: 8px;
+  box-shadow: 0 0 10px #00ffff;
+}
